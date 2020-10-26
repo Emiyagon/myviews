@@ -1,3 +1,12 @@
 <resources>
     <string name="app_name">MyDempViews</string>
+
+    <string name="toast_1">请打开相关权限,以保证您可以正常使用app!</string>
+    <string name="popup_title">选择封面</string>
+    <string name="popup_item1">拍照</string>
+    <string name="popup_item2">从相册选择</string>
+    <string name="save_picture">保存图片</string>
+    <string name="save_picture_failed">保存失败</string>
+    <string name="save_picture_success">图片成功保存至%s目录</string>
+
 </resources>
