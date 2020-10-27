@@ -8,12 +8,20 @@ import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.Settings;
+<<<<<<< HEAD
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
+=======
+>>>>>>> b427b417097f15168a1a7d65938cfcf2162ca4e3
 
 import com.zhuosen.bilibili.biliplayer.R;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
 
 /**
  * 权限获取页面

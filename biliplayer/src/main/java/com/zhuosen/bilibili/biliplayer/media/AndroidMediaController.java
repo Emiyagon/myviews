@@ -17,15 +17,22 @@
 package com.zhuosen.bilibili.biliplayer.media;
 
 import android.content.Context;
+<<<<<<< HEAD
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.ActionBar;
 
+=======
+>>>>>>> b427b417097f15168a1a7d65938cfcf2162ca4e3
 import android.util.AttributeSet;
 import android.view.View;
 import android.widget.MediaController;
 
 import java.util.ArrayList;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.ActionBar;
 
 public class AndroidMediaController extends MediaController implements IMediaController {
     private ActionBar mActionBar;

@@ -1,12 +1,17 @@
 package com.zhuosen.bilibili.biliplayer.danmaku;
 
+<<<<<<< HEAD
 
 import androidx.annotation.IntDef;
 
+=======
+>>>>>>> b427b417097f15168a1a7d65938cfcf2162ca4e3
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
+
+import androidx.annotation.IntDef;
 
 import static master.flame.danmaku.danmaku.model.BaseDanmaku.TYPE_FIX_BOTTOM;
 import static master.flame.danmaku.danmaku.model.BaseDanmaku.TYPE_FIX_TOP;

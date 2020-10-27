@@ -1,21 +1,23 @@
 apply plugin: 'com.android.library'
 
 android {
-    //处理所有报META-INF/*'的错误
-   /* packagingOptions {
-        exclude 'lib/armeabi-v7a/libijkffmpeg.so'
-        exclude 'lib/armeabi-v7a/libijkplayer.so'
-        exclude 'lib/armeabi-v7a/libijksdl.so'
-    }*/
-    compileSdkVersion 28
 
-
+    //  rootProject.ext.compileSdkVersion
+    compileSdkVersion rootProject.ext.compileSdkVersion
+    buildToolsVersion rootProject.ext.buildToolsVersion
 
     defaultConfig {
+<<<<<<< HEAD
         minSdkVersion 19
         targetSdkVersion 28
         versionCode 1
         versionName "1.0"
+=======
+        minSdkVersion rootProject.ext.minSdkVersion
+        targetSdkVersion rootProject.ext.targetSdkVersion
+        versionCode rootProject.ext.versionCode
+        versionName rootProject.ext.versionName
+>>>>>>> b427b417097f15168a1a7d65938cfcf2162ca4e3
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         ndk {

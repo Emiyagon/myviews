@@ -19,6 +19,9 @@ import androidx.fragment.app.DialogFragment;
 
 import com.zhuosen.bilibili.biliplayer.R;
 
+import androidx.annotation.Nullable;
+import androidx.fragment.app.DialogFragment;
+
 
 /**
  * Created by long on 2016/11/17.

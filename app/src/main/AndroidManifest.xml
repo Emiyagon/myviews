@@ -2,15 +2,18 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     package="com.illyasr.mydempviews">
-    <!-- android:sharedUserId="android.uid.system" -->
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" /> <!-- 危险 -->
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" /> <!-- android:sharedUserId="android.uid.system" -->
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission
         android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS"
         tools:ignore="ProtectedPermissions" />
     <uses-permission android:name="android.permission.CALL_PHONE" />
-    <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.RECEIVE_SMS" />
     <uses-permission android:name="android.permission.READ_CONTACTS" />
@@ -25,19 +28,39 @@
         android:required="true" />
 
     <application
+        android:name=".MyApplication"
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@mipmap/applogo"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:roundIcon="@mipmap/applogo"
         android:supportsRtl="true"
+<<<<<<< HEAD
         android:theme="@style/AppTheme">
         <activity android:name=".ColorActivity">
+=======
+        android:theme="@style/AppTheme"
+        tools:replace="android:theme">
+
+        <!-- 高德地图 -->
+        <meta-data
+            android:name="com.amap.api.v2.apikey"
+            android:value="a146c2238facbc7dad126dc63a589e25" />
+        <service android:name="com.amap.api.location.APSService"/>
+
+        <activity android:name=".ui.activity.BarrageActivity"></activity>
+        <activity android:name=".ui.activity.MainActivityText" />
+        <activity android:name=".ui.activity.MyLocationActivity" />
+        <activity android:name=".SplashActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/WelcomeTheme">
+>>>>>>> b427b417097f15168a1a7d65938cfcf2162ca4e3
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+<<<<<<< HEAD
         <activity android:name=".MainActivity">
 <!--            <intent-filter>-->
 <!--                <action android:name="android.intent.action.MAIN" />-->
@@ -45,6 +68,9 @@
 <!--                <category android:name="android.intent.category.LAUNCHER" />-->
 <!--            </intent-filter>-->
         </activity>
+=======
+        <activity android:name=".MainActivity" />
+>>>>>>> b427b417097f15168a1a7d65938cfcf2162ca4e3
     </application>
 
 </manifest>

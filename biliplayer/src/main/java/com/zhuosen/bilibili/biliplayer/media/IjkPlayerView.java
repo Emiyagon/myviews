@@ -78,6 +78,13 @@ import java.lang.annotation.Target;
 import java.util.ArrayList;
 import java.util.List;
 
+import androidx.annotation.IntDef;
+import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
+import androidx.core.view.MotionEventCompat;
+import androidx.core.view.ViewCompat;
+import androidx.core.view.ViewPropertyAnimatorListenerAdapter;
 import master.flame.danmaku.controller.DrawHandler;
 import master.flame.danmaku.controller.IDanmakuView;
 import master.flame.danmaku.danmaku.loader.ILoader;

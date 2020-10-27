@@ -22,8 +22,11 @@ import android.graphics.Bitmap;
 import android.graphics.Matrix;
 import android.graphics.SurfaceTexture;
 import android.os.Build;
+<<<<<<< HEAD
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+=======
+>>>>>>> b427b417097f15168a1a7d65938cfcf2162ca4e3
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.Surface;
@@ -37,6 +40,8 @@ import java.lang.ref.WeakReference;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import tv.danmaku.ijk.media.player.IMediaPlayer;
 import tv.danmaku.ijk.media.player.ISurfaceTextureHolder;
 import tv.danmaku.ijk.media.player.ISurfaceTextureHost;
