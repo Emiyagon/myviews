@@ -34,33 +34,28 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/applogo"
         android:supportsRtl="true"
-<<<<<<< HEAD
-        android:theme="@style/AppTheme">
-        <activity android:name=".ColorActivity">
-=======
+
         android:theme="@style/AppTheme"
         tools:replace="android:theme">
-
+        <activity android:name=".ColorActivity" />
         <!-- 高德地图 -->
         <meta-data
             android:name="com.amap.api.v2.apikey"
             android:value="a146c2238facbc7dad126dc63a589e25" />
         <service android:name="com.amap.api.location.APSService"/>
 
-        <activity android:name=".ui.activity.BarrageActivity"></activity>
+        <activity android:name=".ui.activity.BarrageActivity" />
         <activity android:name=".ui.activity.MainActivityText" />
         <activity android:name=".ui.activity.MyLocationActivity" />
         <activity android:name=".SplashActivity"
             android:screenOrientation="portrait"
             android:theme="@style/WelcomeTheme">
->>>>>>> b427b417097f15168a1a7d65938cfcf2162ca4e3
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-<<<<<<< HEAD
         <activity android:name=".MainActivity">
 <!--            <intent-filter>-->
 <!--                <action android:name="android.intent.action.MAIN" />-->
@@ -68,9 +63,6 @@
 <!--                <category android:name="android.intent.category.LAUNCHER" />-->
 <!--            </intent-filter>-->
         </activity>
-=======
-        <activity android:name=".MainActivity" />
->>>>>>> b427b417097f15168a1a7d65938cfcf2162ca4e3
     </application>
 
 </manifest>

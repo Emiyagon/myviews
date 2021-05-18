@@ -30,6 +30,7 @@ public class BarrageActivity extends AppCompatActivity implements View.OnClickLi
     private long scrollTime = 2000;
 
     private int scrollB = 1 ;// 速度倍数系数,基数是10
+    private int color = 0xffffffff;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,6 +41,8 @@ public class BarrageActivity extends AppCompatActivity implements View.OnClickLi
 
         Intent intent=getIntent();
         Bundle bundle=intent.getExtras();///获取前面的那个activity传过来的数据
+        color = intent.getIntExtra("color", 0xffffffff);
+
         setData(bundle.getString("msg"),intent.getIntExtra("speed",1));
 
         init();
@@ -96,7 +99,7 @@ public class BarrageActivity extends AppCompatActivity implements View.OnClickLi
         notice = findViewById(R.id.user_notice);
         notice.setOnClickListener(this);
 //        initData();
-        NoticeAdapter noticeAdapter = new NoticeAdapter();
+        NoticeAdapter noticeAdapter = new NoticeAdapter(color);
         noticeAdapter.setmDatas(mDatas);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(mContext,LinearLayoutManager.HORIZONTAL,false);
         notice.setLayoutManager(linearLayoutManager);

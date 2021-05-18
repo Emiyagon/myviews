@@ -5,12 +5,15 @@ android {
     buildToolsVersion "29.0.3"
     defaultConfig {
         applicationId "com.illyasr.mydempviews"
-        minSdkVersion 19
-        targetSdkVersion 30
-        versionCode 1
-        versionName "1.0"
+        minSdkVersion rootProject.ext.minSdkVersion
+        targetSdkVersion rootProject.ext.targetSdkVersion
+        versionCode rootProject.ext.versionCode
+        versionName rootProject.ext.versionName
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    
+        javaCompileOptions { annotationProcessorOptions { includeCompileClasspath = true } }
         multiDexEnabled true
+        flavorDimensions "cp"
         ndk {
             //设置支持的SO库架构（开发者可以根据需要，选择一个或多个平台的so）
             abiFilters  "armeabi-v7a", "arm64-v8a", "x86","arm64-v8a"
@@ -30,6 +33,29 @@ android {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
+
+    dataBinding {
+        enabled = true
+    }
+
+    flavorDimensions 'cp'
+    productFlavors {
+
+//        "honlin" {
+//            dimension 'cp'
+//            applicationId "com.jixing.aimili"
+//            signingConfig signingConfigs.release
+//            buildConfigField("String", "GUID", '""')
+////            buildConfigField "String", "ApiHost", "\"https://vip.gxkj001.cn/\""
+//            buildConfigField "String", "ApiHost", "\"https://www.sdjdtf.cn\""
+//            manifestPlaceholders = [
+//                    app_name : "@string/app_name",
+//                    app_icon : "@mipmap/ic_launcher",
+//                    app_style: "@style/AppTheme",
+//            ]
+//        }
+
+    }
 }
 
 dependencies {
@@ -39,10 +65,7 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test.ext:junit:1.1.0'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
-<<<<<<< HEAD
     implementation project(path: ':biliplayer')
-
-=======
 
     // 黄油刀
     implementation 'com.jakewharton:butterknife:8.2.1'
@@ -99,6 +122,7 @@ dependencies {
 
     //liveEventBus
     api 'com.jeremyliao:live-event-bus:1.4.0'
+    api 'com.larswerkman:HoloColorPicker:1.5'
 
     // 强制更新
     api 'com.allenliu.versionchecklib:library:2.2.0'
@@ -110,6 +134,5 @@ dependencies {
 
     // 高德定位
     implementation 'com.amap.api:3dmap:latest.integration' //定位功能
-    implementation 'com.amap.api:location:latest.integration' //搜索功能
->>>>>>> b427b417097f15168a1a7d65938cfcf2162ca4e3
+    implementation 'com.amap.api:location:latest.integration' //搜索功能 >>>>>> b427b417097f15168a1a7d65938cfcf2162ca4e3
 }

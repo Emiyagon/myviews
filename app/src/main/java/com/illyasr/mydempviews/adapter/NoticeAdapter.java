@@ -15,6 +15,16 @@ import androidx.recyclerview.widget.RecyclerView;
 
 public class NoticeAdapter extends RecyclerView.Adapter<NoticeViewHolder>{
 
+    private int color = 0xffffffff;
+
+    public NoticeAdapter(int color) {
+        this.color = color;
+    }
+
+    public NoticeAdapter( ) {
+
+    }
+
     List<String> mDatas = new ArrayList<>();
 
     public void setmDatas(List<String> mDatas) {
@@ -35,7 +45,7 @@ public class NoticeAdapter extends RecyclerView.Adapter<NoticeViewHolder>{
 
         }else {
             final  int tempPos = position%(mDatas.size());
-            holder.setTextViewValue(mDatas.get(tempPos),0xffffffff);
+            holder.setTextViewValue(mDatas.get(tempPos),color);
         }
 
 

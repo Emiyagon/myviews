@@ -19,11 +19,8 @@ package com.zhuosen.bilibili.biliplayer.media;
 import android.graphics.Bitmap;
 import android.graphics.Matrix;
 import android.graphics.SurfaceTexture;
-<<<<<<< HEAD
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-=======
->>>>>>> b427b417097f15168a1a7d65938cfcf2162ca4e3
 import android.view.Surface;
 import android.view.SurfaceHolder;
 import android.view.View;

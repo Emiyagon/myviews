@@ -1,68 +1,111 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/white"
-    android:orientation="vertical">
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+    </data>
 
     <LinearLayout
-        style="@style/linear_input"
-        android:layout_marginTop="20dp">
-
-        <TextView
-            style="@style/text_input_label"
-            android:text="手持弹幕:" />
-
-        <EditText
-            android:id="@+id/msg"
-            android:layout_width="match_parent"
-            android:layout_height="150dp"
-            android:layout_marginTop="20dp"
-            android:hint="请输入手持弹幕"
-            android:textColorHint="#eee"
-
-            android:background="#999"
-            android:gravity="start"
-            android:padding="5dp"
-            android:textColor="#fff"
-            android:text=""
-
-            />
-        <!--         style="@style/text_input"   -->
-
-    </LinearLayout>
-
-    <LinearLayout
-        style="@style/linear_input"
-        android:layout_marginTop="20dp"
-        android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:orientation="vertical">
 
-        <TextView
-            style="@style/text_input_label"
-            android:text="速度:" />
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rv_speed"
+        <androidx.core.widget.NestedScrollView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:layout_marginBottom="20dp"
-            />
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    style="@style/linear_input"
+                    android:layout_marginTop="20dp">
+
+                    <TextView
+                        style="@style/text_input_label"
+                        android:text="手持弹幕:" />
+
+                    <EditText
+                        android:id="@+id/msg"
+                        android:layout_width="match_parent"
+                        android:layout_height="150dp"
+                        android:layout_marginTop="20dp"
+                        android:hint="请输入手持弹幕"
+                        android:textColorHint="#eee"
+
+                        android:background="#999"
+                        android:gravity="start"
+                        android:padding="5dp"
+                        android:textColor="#fff"
+                        android:text=""
+
+                        />
+                    <!--         style="@style/text_input"   -->
+
+                </LinearLayout>
+
+                <LinearLayout
+                    style="@style/linear_input"
+                    android:layout_marginTop="20dp"
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        style="@style/text_input_label"
+                        android:text="速度:" />
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/rv_speed"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginBottom="20dp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    style="@style/linear_input"
+                    android:layout_marginTop="20dp"
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        style="@style/text_input_label"
+                        android:text="颜色:" />
+
+
+                    <TextView
+                        android:id="@+id/tv_tcolor"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+
+                        android:text="点击选择"
+                        android:layout_margin="@dimen/x15"
+                        android:padding="15dp"
+                        android:textSize="@dimen/x29" />
+
+                </LinearLayout>
+
+
+                <FrameLayout
+                    android:id="@+id/submit"
+                    style="@style/button_submit">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="16dp"
+                        android:layout_gravity="center"
+                        android:text="完成" />
+                </FrameLayout>
+            </LinearLayout>
+        </androidx.core.widget.NestedScrollView>
+
 
     </LinearLayout>
-
-    <FrameLayout
-        android:id="@+id/submit"
-        style="@style/button_submit">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="16dp"
-            android:layout_gravity="center"
-            android:text="完成" />
-    </FrameLayout>
-
-</LinearLayout>
+</layout>

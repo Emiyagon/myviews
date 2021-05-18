@@ -56,7 +56,7 @@ public class MainActivity extends BaseActivity {
         list.add(new TabBean("SpView",2));
 
 
-        rvAlbums.setLayoutManager(new GridLayoutManager(this,3));
+//        rvAlbums.setLayoutManager(new GridLayoutManager(this,3));
         adapter = new MainAdapter(this,list);
         rvAlbums.setAdapter(adapter);
         adapter.setOnRem((pos, type) -> {
@@ -75,6 +75,9 @@ public class MainActivity extends BaseActivity {
                         e.printStackTrace();
                     }
                     break;
+                case 3:
+
+
             }
 
         });

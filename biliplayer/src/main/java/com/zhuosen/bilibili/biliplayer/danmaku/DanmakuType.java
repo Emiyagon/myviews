@@ -1,11 +1,8 @@
 package com.zhuosen.bilibili.biliplayer.danmaku;
 
-<<<<<<< HEAD
 
 import androidx.annotation.IntDef;
 
-=======
->>>>>>> b427b417097f15168a1a7d65938cfcf2162ca4e3
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
