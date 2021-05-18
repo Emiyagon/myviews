@@ -131,7 +131,7 @@ dependencies {
     implementation 'com.github.chenBingX:SuperTextView:v3.2.5'
     implementation project(path: ':biliplayer')
     implementation project(path: ':forempty')
-
+    api 'com.zhouyou:rxeasyhttp:2.1.5'
     // 高德定位
     implementation 'com.amap.api:3dmap:latest.integration' //定位功能
     implementation 'com.amap.api:location:latest.integration' //搜索功能 >>>>>> b427b417097f15168a1a7d65938cfcf2162ca4e3

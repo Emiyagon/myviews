@@ -67,6 +67,8 @@ public class MainActivityText extends BaseActivity {
                 binding = DataBindingUtil.bind(getContentView());
                 binding.colorPicker.addSVBar(binding.svBar);
                 binding.colorPicker.addOpacityBar(binding.opacityBar);
+                binding.colorPicker.addSaturationBar(binding.saturBar);
+                binding.colorPicker.addValueBar(binding.valueBar);
             }
 
             @Override

@@ -16,6 +16,7 @@ import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.target.SimpleTarget;
 import com.bumptech.glide.request.transition.Transition;
 import com.illyasr.mydempviews.MyApplication;
+import com.illyasr.mydempviews.R;
 import com.jeremyliao.liveeventbus.LiveEventBus;
 
 import java.io.BufferedInputStream;
@@ -89,7 +90,13 @@ public class DownloadUtil{
     }
 
 
-    public static void downMp4(Context context, final String url) {
+//    private OnDownloadListener onDownloadListener;
+    public interface OnDownloadListener{
+        void onSuccess(String s);
+        void onFailed(String s);
+    }
+    public static void downMp4(Context context, final String url,OnDownloadListener onDownloadListener) {
+
         Toast.makeText(MyApplication.getInstance(),"准备下载",Toast.LENGTH_SHORT).show();
         final ProgressDialog pd; // 进度条对话框
         pd = new ProgressDialog(context);
@@ -115,9 +122,10 @@ public class DownloadUtil{
                     sleep(1000);
                     pd.dismiss(); // 结束掉进度条对话框
                     File sd1 = Environment.getExternalStorageDirectory();
-                    String path1 = sd1.getPath() + "/lfmf";
-                    Toast.makeText(MyApplication.getInstance(),"下载完成!文件保存在"+path1+"文件夹下!",Toast.LENGTH_SHORT).show();
-                    LiveEventBus.get().with("download").post("下载完成!文件保存在"+path1+"文件夹下!");
+                    String path1 = sd1.getPath() + "/"+context.getResources().getString(R.string.app_name);
+//                    Toast.makeText(MyApplication.getInstance(),"下载完成!文件保存在"+path1+"文件夹下!",Toast.LENGTH_SHORT).show();
+//                    LiveEventBus.get().with("download").post("下载完成!文件保存在"+path1+"文件夹下!");
+                    onDownloadListener.onSuccess("下载完成!文件保存在"+path1+"文件夹下!");
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
