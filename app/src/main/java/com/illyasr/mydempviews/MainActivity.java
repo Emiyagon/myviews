@@ -87,7 +87,7 @@ public class MainActivity extends BaseActivity {
                     // 为了兼容低版本我们这里使用旧版的android.text.ClipboardManager，虽然提示deprecated，但不影响使用。
                     ClipboardManager cm = (ClipboardManager) getSystemService(Context.CLIPBOARD_SERVICE);
                     // 将文本内容放到系统剪贴板里。
-                    cm.setText(videoUrl2);
+//                    cm.setText(videoUrl2);
                     startActivity(new Intent(MainActivity.this, GetVideoActivity.class));
                     break;
 

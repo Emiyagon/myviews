@@ -98,6 +98,19 @@ public class GlideUtil {
                 .into(imageView);
     }
 
+    public static void putHttpImg(Object url, ImageView imageView) {
+        Glide.with(imageView)
+                .load(url)
+//                .apply(new RequestOptions().centerCrop().placeholder(R.mipmap.touxiang)
+                .apply(new RequestOptions().centerInside().placeholder(R.mipmap.jzy_content_pic_cute)//CENTER_INSIDE
+//                .error(R.mipmap.touxiang)
+                .error(R.mipmap.jzy_content_pic_cute)
+//                .fallback(R.mipmap.touxiang))
+                .fallback(R.mipmap.jzy_content_pic_cute))
+//                .thumbnail(0.1f)//先显示缩略图  缩略图为原图的1/10
+                .into(imageView);
+    }
+
 
 
 }

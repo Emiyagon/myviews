@@ -1,12 +1,14 @@
 package com.illyasr.mydempviews.util;
 
 import android.app.ProgressDialog;
+import android.content.ContentValues;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.drawable.BitmapDrawable;
 import android.media.MediaMetadataRetriever;
+import android.media.MediaScannerConnection;
 import android.media.ThumbnailUtils;
 import android.net.Uri;
 import android.os.Environment;
@@ -17,17 +19,35 @@ import android.util.Log;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+
+import com.autonavi.base.amap.mapcore.FileUtil;
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.target.SimpleTarget;
+import com.bumptech.glide.request.transition.Transition;
+import com.illyasr.mydempviews.MyApplication;
+import com.illyasr.mydempviews.R;
+
+import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
 import java.net.URL;
+import java.net.URLConnection;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Hashtable;
 import java.util.UUID;
+import java.util.concurrent.ExecutionException;
 
 /**
  * Created by bullet on 2018/4/14.
@@ -37,12 +57,15 @@ public class ImgDonwload {
 
     private static String filePath;
     private static Bitmap mBitmap;
-    private static String mFileName = "catfish";
+    private static String mFileName = "myview";
     private static String mSaveMessage;
-    private final static String TAG = "ImageActivity";
+    private final static String TAG = "TAG";
     private static Context context;
 
     private static ProgressDialog mSaveDialog = null;
+
+
+
 
     public static void donwloadImg(Context contexts, String filePaths) {
         context = contexts;
@@ -62,14 +85,10 @@ public class ImgDonwload {
                 } else {
                     Toast.makeText(context, "Image error!", Toast.LENGTH_LONG).show();
                 }
-
-
                 saveFile(mBitmap, mFileName);
                 mSaveMessage = "图片保存成功！";
-            } catch (IOException e) {
-                mSaveMessage = "图片保存失败！";
-                e.printStackTrace();
-            } catch (Exception e) {
+            }   catch (Exception e) {
+                mSaveMessage = "图片保存失败！"+e.getMessage();
                 e.printStackTrace();
             }
             messageHandler.sendMessage(messageHandler.obtainMessage());
@@ -80,9 +99,11 @@ public class ImgDonwload {
     private static Handler messageHandler = new Handler() {
         @Override
         public void handleMessage(Message msg) {
-            mSaveDialog.dismiss();
+            if (mSaveDialog != null) {
+                mSaveDialog.dismiss();
+            }
             Log.d(TAG, mSaveMessage);
-            Toast.makeText(context, mSaveMessage, Toast.LENGTH_SHORT).show();
+            Toast.makeText(MyApplication.getInstance(), mSaveMessage, Toast.LENGTH_SHORT).show();
         }
     };
 
@@ -139,7 +160,7 @@ public class ImgDonwload {
             dirFile.mkdir();
         }
         fileName = UUID.randomUUID().toString() + ".jpg";
-        File jia = new File(Environment.getExternalStorageDirectory().getPath() + "/DCIM/ZYCF");
+        File jia = new File(MyApplication.getInstance().getExternalFilesDir("file") ,"pics");
         if (!jia.exists()) {   //判断文件夹是否存在，不存在则创建
             jia.mkdirs();
         }
@@ -282,5 +303,67 @@ public class ImgDonwload {
 //        image.setDrawableCacheEnabled(false);
         return bm;
     }
+
+    /**
+     * 读取 本地文件，转为字节数组
+     * @param url 本地文件路径
+     * @return
+     * @throws IOException
+     */
+    private byte[] getImageBytes(String url) throws Exception {
+        BufferedInputStream in = new BufferedInputStream(new FileInputStream(url));
+        ByteArrayOutputStream out = new ByteArrayOutputStream(1024);
+        byte[] temp = new byte[2048];
+        int size = 0;
+        while ((size = in.read(temp)) != -1) {
+            out.write(temp, 0, size);
+        }
+        in.close();
+        byte[] content = out.toByteArray();
+        return content;
+
+    }
+    /**
+     * 删除单个文件
+     * @param   filePath    被删除文件的文件名
+     * @return 文件删除成功返回true，否则返回false
+     */
+    public static boolean deleteFile(String filePath) {
+        File file = new File(filePath);
+        if (file.isFile() && file.exists()) {
+            return file.delete();
+        }
+        return false;
+    }
+ 
+    /**
+     * 将URL转化成bitmap形式
+     *
+     * @param url
+     * @return bitmap type
+     */
+    public final static Bitmap returnBitMap(String url) {
+
+        URL myFileUrl;
+        Bitmap bitmap = null;
+        try {
+            myFileUrl = new URL(url);
+            HttpURLConnection conn;
+            conn = (HttpURLConnection) myFileUrl.openConnection();
+            conn.setDoInput(true);
+            conn.connect();
+            InputStream is = conn.getInputStream();
+            bitmap = BitmapFactory.decodeStream(is);
+        } catch (MalformedURLException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return bitmap;
+
+
+    }
+
+
 
 }

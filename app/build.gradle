@@ -56,6 +56,11 @@ android {
 //        }
 
     }
+
+    lintOptions {
+        checkReleaseBuilds false
+        abortOnError false
+    }
 }
 
 dependencies {
@@ -66,7 +71,7 @@ dependencies {
     androidTestImplementation 'androidx.test.ext:junit:1.1.0'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
     implementation project(path: ':biliplayer')
-
+    api 'androidx.cardview:cardview:1.0.0'
     // 黄油刀
     implementation 'com.jakewharton:butterknife:8.2.1'
     implementation 'com.jeremyliao:live-event-bus:1.4.0'

@@ -23,6 +23,13 @@ public class MyApplication extends MultiDexApplication {
         myApp=this;
 //        MultiDex.install(MyApplication.getInstance());
 
+
+    }
+
+    @Override
+    public void onCreate() {
+        super.onCreate();
+        myApp=this;
         // 初始化HttpClient.
         EasyHttp.init(this);//默认初始化,必须调用
         //设置请求头
@@ -43,7 +50,7 @@ public class MyApplication extends MultiDexApplication {
                 .setCacheDiskConverter(new SerializableDiskConverter())//默认缓存使用序列化转化
                 .setCacheMaxSize(50 * 1024 * 1024)//设置缓存大小为50M
                 .setCacheVersion(0)//缓存版本为1
-//                .addInterceptor(new ChuckInterceptor(MyApplication.getInstance()))
+                .addInterceptor(new ChuckInterceptor(myApp))
                 .setCertificates();//信任所有证书;
     }
 }
